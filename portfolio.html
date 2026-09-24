@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Essein Antoni L. Abe | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <a href="#home" class="nav-logo">ABE<span class="dot">.</span></a>
+    
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about" class="nav-link">About Me</a></li>
+      <li><a href="#education-achievements" class="nav-link">Educational Journey</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+      <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle Mobile Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Home Section -->
+  <section id="home" class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <span class="badge">Welcome to my dimension</span>
+        <h1 class="hero-title">Hi, I'm <span class="highlight">Essein Antoni L. Abe</span></h1>
+        <div class="ticker-wrapper">
+          <span class="ticker-prefix">I am a</span>
+          <span id="cycling-title" class="cycling-text">2nd Year BSCS Student</span>
+        </div>
+        <p class="hero-intro">
+          Aspiring computer scientist building modern web experiences and exploring computational frontiers with precision and style.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Get In Touch</a>
+          <a href="#projects" class="btn btn-secondary">View Work</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="image-frame-container" id="interactive-profile-wrapper">
+          <!-- Spider Sense Radar Rings -->
+          <div class="spider-sense-ring ring-1"></div>
+          <div class="spider-sense-ring ring-2"></div>
+          
+          <div class="image-frame" id="interactive-profile-frame">
+            <img src="abe.png">
+            <div class="glitch-overlay"></div>
+            <div class="frame-tag"><i class="fa-solid fa-expand"></i> Click to Focus</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About <span class="highlight">Me</span></h2>
+      <div class="about-content">
+        <blockquote class="spider-quote">
+          "Okay, let's do this one last time, yeah?" My name is Essein Antoni L. Abe. Ever since I got bitten by that radioactive spider—I did not become Spiderman. Anyway, I am a second-year Computer Science student who aspires to be an influential and inspirational character in the field of computing and technology.
+        </blockquote>
+        <blockquote class="desc">My dream is to help and be one of the attendants of the ever-going development of technology in the Philippines. I am equipped with skills and hard-work, making tasks and projects functionable with presentation. </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Educational Journey & Achievements Section -->
+  <section id="education-achievements" class="section bg-alt">
+    <div class="container">
+      <h2 class="section-title">Educational <span class="highlight">Journey</span></h2>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3><i class="fa-solid fa-graduation-cap"></i> Education & Achievements</h3>
+          <p class="card-desc">Recognitions, leadership experience, and academic trajectory.</p>
+          <div class="media-slot main-achievement-slot">
+            <img src="https://via.placeholder.com/600x350/1e1e24/00f0ff?text=Main+Achievement+/+Leadership+Photo" alt="Main Achievement" />
+            <span class="slot-label">Key Achievement / Leadership Experience</span>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3><i class="fa-solid fa-award"></i> Medals & Certificates</h3>
+          <p class="card-desc">Honors and certifications earned over time.</p>
+          <div class="certificates-gallery">
+            <div class="media-slot mini-slot">
+              <img src="https://via.placeholder.com/300x200/1e1e24/ff2a5f?text=Certificate/Medal+1" alt="Certificate 1" />
+              <span class="slot-label">Slot 1</span>
+            </div>
+            <div class="media-slot mini-slot">
+              <img src="https://via.placeholder.com/300x200/1e1e24/00f0ff?text=Certificate/Medal+2" alt="Certificate 2" />
+              <span class="slot-label">Slot 2</span>
+            </div>
+            <div class="media-slot mini-slot">
+              <img src="https://via.placeholder.com/300x200/1e1e24/ffe600?text=Certificate/Medal+3" alt="Certificate 3" />
+              <span class="slot-label">Slot 3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
+      <div class="skills-grid">
+        <div class="skill-card"><i class="fa-brands fa-python"></i><span>Python</span></div>
+        <div class="skill-card"><i class="fa-brands fa-php"></i><span>PHP</span></div>
+        <div class="skill-card"><i class="fa-brands fa-js"></i><span>JavaScript</span></div>
+        <div class="skill-card"><i class="fa-brands fa-git-alt"></i><span>Git</span></div>
+        <div class="skill-card"><i class="fa-brands fa-github"></i><span>GitHub</span></div>
+        <div class="skill-card"><i class="fa-brands fa-css3-alt"></i><span>CSS</span></div>
+        <div class="skill-card"><i class="fa-brands fa-html5"></i><span>HTML</span></div>
+        <div class="skill-card"><i class="fa-solid fa-database"></i><span>MySQL</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section bg-alt">
+    <div class="container">
+      <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+      <div class="projects-grid">
+        
+        <div class="project-card">
+          <div class="project-image-slot">
+            <img src="pharma.jpg" alt="Project 1 Preview" />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Multiverse Data Analyzer</h3>
+            <p class="project-desc">
+              A dynamic web dashboard built to visualize complex computational metrics using Python and JavaScript backends. Designed with low-latency data feeds.
+            </p>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>JavaScript</span>
+              <span>MySQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image-slot">
+            <img src="payroll.jpg" alt="Project 2 Preview" />
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Web-Based Inventory Portal</h3>
+            <p class="project-desc">
+              A sleek portal constructed using PHP, HTML/CSS, and MySQL to streamline record-keeping, user management, and transactional processing.
+            </p>
+            <div class="project-tags">
+              <span>PHP</span>
+              <span>HTML/CSS</span>
+              <span>MySQL</span>
+              <span>Git</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+      <div class="contact-wrapper">
+        <div class="contact-details">
+          <h3>Contact Info</h3>
+          <p>Feel free to reach out for collaborations, academic inquiries, or projects!</p>
+          <ul class="contact-info-list">
+            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:abeesseinantoni@gmail.com">abeesseinantoni@gmail.com</a></li>
+            <li><i class="fa-solid fa-phone"></i> <a href="tel:09929457220">09929457220</a></li>
+          </ul>
+          <div class="social-links">
+            <a href="https://www.facebook.com/wonntons" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i> Antoni Abe</a>
+            <a href="https://instagram.com/wonntons" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i> @wonntons</a>
+            <a href="https://github.com/essens22" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i> essens22</a>
+            <a href="https://www.linkedin.com/in/essein-antoni-abe-67389b435/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i> Essein Antoni Abe</a>
+          </div>
+        </div>
+
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" required placeholder="Your Name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required placeholder="Your Email" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="4" required placeholder="Your Message..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Essein Antoni L. Abe. Built across dimensions.</p>
+    </div>
+  </footer>
+
+  <!-- Chatbot Widget: AIzen -->
+  <div class="chatbot-wrapper">
+    <button id="chatbot-toggle" class="chatbot-btn" aria-label="Open Chatbot">
+      <i class="fa-solid fa-spider"></i>
+    </button>
+
+    <div id="chatbot-window" class="chatbot-window hidden">
+      <div class="chat-header">
+        <div class="chat-bot-info">
+          <i class="fa-solid fa-spider chat-avatar"></i>
+          <div>
+            <h4>AIzen</h4>
+            <span class="status">Online | Spider-AI Assistant</span>
+          </div>
+        </div>
+        <button id="chat-close" class="chat-close-btn">&times;</button>
+      </div>
+
+      <div id="chat-body" class="chat-body">
+        <div class="chat-message bot">
+          <p>Hello! I'm <strong>AIzen</strong> 🕷️. Ask me anything about Essein, or pick a preset question below!</p>
+        </div>
+      </div>
+
+      <div class="chat-presets">
+        <button class="preset-btn" data-question="who are you">Who is Essein?</button>
+        <button class="preset-btn" data-question="what are your skills">What are his skills?</button>
+        <button class="preset-btn" data-question="how to contact">How can I contact him?</button>
+      </div>
+
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Type a question..." />
+        <button id="chat-send" class="chat-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
