@@ -13,6 +13,7 @@
   --border-color: rgba(255, 42, 95, 0.2);
   --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   --glow-effect: 0 0 15px rgba(255, 42, 95, 0.4);
+  --grid-color: rgba(255, 42, 95, 0.08);
 }
 
 [data-theme="light"] {
@@ -27,16 +28,18 @@
   --border-color: rgba(214, 0, 54, 0.25);
   --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   --glow-effect: 0 0 10px rgba(214, 0, 54, 0.2);
+  --grid-color: rgba(214, 0, 54, 0.06);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  animation: none !important;
+  transition: none !important;
 }
 
 html {
-  scroll-behavior: smooth;
   font-family: 'Space Grotesk', sans-serif;
 }
 
@@ -44,8 +47,14 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
   overflow-x: hidden;
+  
+  /* STATIC GRID LINES BACKGROUND */
+  background-image: 
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
 }
 
 h1, h2, h3, h4 {
@@ -86,16 +95,10 @@ a {
 }
 
 /* ==========================================================================
-   PARTICLE CANVAS BACKGROUND
+   PARTICLE CANVAS REMOVED / DISABLED
    ========================================================================== */
 #particle-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  pointer-events: none;
+  display: none !important;
 }
 
 /* ==========================================================================
@@ -114,7 +117,6 @@ a {
   align-items: center;
   z-index: 1000;
   border-bottom: 1px solid var(--border-color);
-  transition: background-color 0.3s ease;
 }
 
 [data-theme="light"] .navbar {
@@ -127,11 +129,9 @@ a {
   font-weight: 900;
   letter-spacing: 1.5px;
   color: var(--text-primary);
-  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .nav-logo:hover {
-  transform: scale(1.05);
   color: var(--accent-red);
 }
 
@@ -149,7 +149,6 @@ a {
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-secondary);
-  transition: color 0.3s ease;
 }
 
 .nav-link:hover {
@@ -170,7 +169,6 @@ a {
   padding: 0.5rem 0.8rem;
   border-radius: 50%;
   cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 .mobile-menu-btn {
@@ -185,7 +183,7 @@ a {
 }
 
 /* ==========================================================================
-   HERO SECTION & INTERACTIVE PROFILE FRAME
+   HERO SECTION & PROFILE FRAME
    ========================================================================== */
 .hero-section {
   min-height: 100vh;
@@ -252,7 +250,6 @@ a {
   border-radius: 6px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
   display: inline-block;
 }
 
@@ -264,7 +261,6 @@ a {
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px);
   filter: brightness(1.2);
 }
 
@@ -277,14 +273,12 @@ a {
 .btn-secondary:hover {
   border-color: var(--accent-cyan);
   color: var(--accent-cyan);
-  transform: translateY(-3px);
 }
 
-/* Interactive Image Container */
+/* Image Wrapper */
 .hero-image-wrapper {
   display: flex;
   justify-content: center;
-  perspective: 1000px;
 }
 
 .image-frame-container {
@@ -296,27 +290,27 @@ a {
   align-items: center;
 }
 
-/* Spider-Sense Radar Pulse Rings */
+/* UNIQUE PULSE RING ANIMATION ONLY */
 .spider-sense-ring {
   position: absolute;
   border-radius: 50%;
   border: 2px dashed var(--accent-red);
   opacity: 0;
   pointer-events: none;
-  animation: spiderSensePulse 3s infinite ease-out;
+  animation: spiderSensePulse 3s infinite ease-out !important;
 }
 
 .ring-1 {
   width: 110%;
   height: 110%;
-  animation-delay: 0s;
+  animation-delay: 0s !important;
 }
 
 .ring-2 {
   width: 130%;
   height: 130%;
   border-color: var(--accent-cyan);
-  animation-delay: 1.2s;
+  animation-delay: 1.2s !important;
 }
 
 @keyframes spiderSensePulse {
@@ -330,7 +324,7 @@ a {
   }
 }
 
-/* Interactive Frame with Glitch Overlay */
+/* Static Profile Frame */
 .image-frame {
   position: relative;
   width: 100%;
@@ -338,9 +332,6 @@ a {
   overflow: hidden;
   border: 3px solid var(--accent-red);
   box-shadow: var(--card-shadow), var(--glow-effect);
-  cursor: pointer;
-  transition: transform 0.1s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
-  transform-style: preserve-3d;
 }
 
 .image-frame img {
@@ -348,7 +339,6 @@ a {
   height: 100%;
   display: block;
   object-fit: cover;
-  transition: transform 0.4s ease;
 }
 
 .glitch-overlay {
@@ -357,11 +347,10 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, rgba(255, 42, 95, 0.3), rgba(0, 240, 255, 0.3));
-  opacity: 0;
+  background: linear-gradient(45deg, rgba(255, 42, 95, 0.15), rgba(0, 240, 255, 0.15));
+  opacity: 1;
   mix-blend-mode: color-dodge;
   pointer-events: none;
-  transition: opacity 0.3s ease;
 }
 
 .frame-tag {
@@ -377,37 +366,6 @@ a {
   border-radius: 4px;
   backdrop-filter: blur(5px);
   pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.image-frame:hover {
-  border-color: var(--accent-cyan);
-  box-shadow: 0 0 25px rgba(0, 240, 255, 0.6);
-}
-
-.image-frame:hover .glitch-overlay {
-  opacity: 1;
-  animation: glitchFlash 0.4s steps(2, start) infinite;
-}
-
-.image-frame:hover img {
-  transform: scale(1.05);
-}
-
-@keyframes glitchFlash {
-  0% { transform: translate(0, 0); }
-  50% { transform: translate(-3px, 3px); }
-  100% { transform: translate(3px, -3px); }
-}
-
-.image-frame.expanded {
-  animation: dimensionPulse 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-@keyframes dimensionPulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.15) rotate(3deg); }
-  100% { transform: scale(1); }
 }
 
 /* ==========================================================================
@@ -454,7 +412,7 @@ a {
   margin-bottom: 1.2rem;
 }
 
-/* CAROUSEL STYLING FOR MAIN ACHIEVEMENTS (FB POST STYLE) */
+/* CAROUSEL STYLING */
 .achievement-carousel {
   position: relative;
   width: 100%;
@@ -474,14 +432,11 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
+  display: none;
 }
 
 .carousel-slide.active {
-  opacity: 1;
-  visibility: visible;
+  display: block;
 }
 
 .carousel-btn {
@@ -502,7 +457,6 @@ a {
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(4px);
-  transition: all 0.3s ease;
 }
 
 .carousel-btn:hover {
@@ -527,12 +481,10 @@ a {
   border-radius: 50%;
   background: var(--border-color);
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .dot-item.active {
   background: var(--accent-red);
-  transform: scale(1.2);
   box-shadow: 0 0 8px var(--accent-red);
 }
 
@@ -585,10 +537,10 @@ a {
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Nilalagay sa gitna ang mga natitirang cards */
+  justify-content: center;
   gap: 1.5rem;
-  max-width: 900px; /* Nililimitahan ang lapad para maging 4 cards bawat row sa desktop */
-  margin: 0 auto;  /* Nakasentro ang buong grid sa gitna ng screen */
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .skill-card {
@@ -597,13 +549,12 @@ a {
   padding: 1.5rem;
   border-radius: 10px;
   text-align: center;
-  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 140px;  /* Pantay na lapad ng bawat card */
-  height: 140px; /* Pantay na taas ng bawat card */
+  width: 140px;
+  height: 140px;
 }
 
 .skill-card i {
@@ -618,7 +569,6 @@ a {
 }
 
 .skill-card:hover {
-  transform: translateY(-5px);
   border-color: var(--accent-cyan);
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
 }
@@ -642,11 +592,9 @@ a {
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
   border-color: var(--accent-red);
 }
 
@@ -745,7 +693,6 @@ a {
 
 .social-links a {
   color: var(--text-secondary);
-  transition: color 0.2s ease;
   font-size: 0.95rem;
   display: flex;
   align-items: center;
@@ -777,7 +724,6 @@ a {
   color: var(--text-primary);
   font-family: inherit;
   outline: none;
-  transition: border-color 0.3s ease;
 }
 
 .contact-form input:focus,
@@ -816,14 +762,9 @@ a {
   font-size: 1.8rem;
   cursor: pointer;
   box-shadow: 0 0 20px rgba(255, 42, 95, 0.6);
-  transition: transform 0.3s ease;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.chatbot-btn:hover {
-  transform: scale(1.1);
 }
 
 .chatbot-window {
@@ -839,13 +780,10 @@ a {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: all 0.3s ease;
 }
 
 .chatbot-window.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(20px) scale(0.95);
+  display: none;
 }
 
 .chat-header {
@@ -969,15 +907,13 @@ a {
 }
 
 /* ==========================================================================
-   IMAGE ZOOM LIGHTBOX MODAL STYLES
+   IMAGE ZOOM LIGHTBOX MODAL STYLES (STATIC)
    ========================================================================== */
 .clickable-img {
   cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .clickable-img:hover {
-  transform: scale(1.03);
   filter: brightness(1.1);
 }
 
@@ -989,18 +925,14 @@ a {
   height: 100vh;
   background-color: rgba(15, 16, 21, 0.9);
   backdrop-filter: blur(8px);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 3000;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
 }
 
 .image-modal.show {
-  opacity: 1;
-  pointer-events: auto;
+  display: flex;
 }
 
 .modal-content-wrapper {
@@ -1019,12 +951,6 @@ a {
   border-radius: 8px;
   border: 2px solid var(--accent-cyan);
   box-shadow: 0 0 25px rgba(0, 240, 255, 0.4);
-  transform: scale(0.8);
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.image-modal.show .modal-img {
-  transform: scale(1);
 }
 
 .modal-caption {
@@ -1044,16 +970,14 @@ a {
   font-size: 2.5rem;
   font-weight: bold;
   cursor: pointer;
-  transition: color 0.2s ease, transform 0.2s ease;
 }
 
 .modal-close:hover {
   color: var(--accent-cyan);
-  transform: scale(1.2);
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (MOBILE OPTIMIZATIONS)
+   RESPONSIVE DESIGN
    ========================================================================== */
 @media (max-width: 768px) {
   .mobile-menu-btn {
