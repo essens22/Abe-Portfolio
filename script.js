@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const kb = [
     {
       keywords: ["who", "name", "essein", "about"],
-      response: "Essein Antoni L. Abe is a 2nd-year Computer Science student, DOST-SEI Scholar, and Dean's Lister (GPA 1.57)!"
+      response: "Essein Antoni L. Abe is a 2nd-year Computer Science student from Lipa City, Batangas."
     },
     {
       keywords: ["skill", "know", "stack", "technology", "technologies"],
