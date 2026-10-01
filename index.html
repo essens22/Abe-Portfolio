@@ -54,8 +54,8 @@
           Aspiring computer scientist building modern web experiences and exploring computational frontiers with precision and style.
         </p>
         <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Get In Touch</a>
-          <a href="#projects" class="btn btn-secondary">View Work</a>
+          <a href="#contact" class="btn btn-primary">Get In Touch with Me</a>
+          <a href="#projects" class="btn btn-secondary">View Works</a>
         </div>
       </div>
       <div class="hero-image-wrapper">
@@ -65,7 +65,7 @@
           <div class="spider-sense-ring ring-2"></div>
           
           <div class="image-frame" id="interactive-profile-frame">
-            <img src="abe.png">
+            <img src="abe.png" alt="Essein Antoni L. Abe" class="clickable-img">
             <div class="glitch-overlay"></div>
             <div class="frame-tag"><i class="fa-solid fa-expand"></i> Click to Focus</div>
           </div>
@@ -92,45 +92,76 @@
     <div class="container">
       <h2 class="section-title">Educational <span class="highlight">Journey</span></h2>
       <div class="about-grid">
+        
+        <!-- MAIN ACHIEVEMENTS CAROUSEL (Interactive FB Post Style) -->
         <div class="about-card">
-          <h3><i class="fa-solid fa-graduation-cap"></i>Achievements</h3>
+          <h3><i class="fa-solid fa-graduation-cap"></i> Main Achievements</h3>
           <p class="card-desc">Recognition, scholarship grant, and academic trajectory.</p>
-          <div class="media-slot main-achievement-slot">
-            <img src="dost.jpg" alt="Main Achievement" />
-            <span class="slot-label">DOST-SEI Scholar/RA 7687</span>
+          
+          <div class="achievement-carousel">
+            <!-- Navigation Buttons -->
+            <button class="carousel-btn prev-btn" id="achieve-prev-btn" aria-label="Previous Achievement">&lt;</button>
+            <button class="carousel-btn next-btn" id="achieve-next-btn" aria-label="Next Achievement">&gt;</button>
+
+            <!-- Slides Container -->
+            <div class="carousel-slides">
+              <!-- Slide 1: DOST Scholar -->
+              <div class="carousel-slide active" data-index="0">
+                <div class="media-slot main-achievement-slot">
+                  <img src="dost.jpg" alt="DOST-SEI Scholar/RA 7687" class="clickable-img" />
+                  <span class="slot-label">DOST-SEI Scholar / RA 7687</span>
+                </div>
+              </div>
+
+              <!-- Slide 2: Dean's Lister -->
+              <div class="carousel-slide" data-index="1">
+                <div class="media-slot main-achievement-slot">
+                  <img src="deans.jpg" alt="Dean's Lister - First Semester S.Y. 2025-2026 (GPA: 1.57)" class="clickable-img" />
+                  <span class="slot-label">Dean's Lister - 1st Sem S.Y. 2025-2026 (GPA: 1.57)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dots Indicator -->
+            <div class="carousel-dots" id="carousel-dots">
+              <span class="dot-item active" data-slide="0"></span>
+              <span class="dot-item" data-slide="1"></span>
+            </div>
           </div>
         </div>
 
+        <!-- Awards & Certificates Gallery -->
         <div class="about-card">
-          <h3><i class="fa-solid fa-award"></i> Medals & Certificates</h3>
+          <h3><i class="fa-solid fa-award"></i> Awards & Certificates</h3>
           <p class="card-desc">Honors and certifications earned over time.</p>
           <div class="certificates-gallery">
             <div class="media-slot mini-slot">
-              <img src="stage.jpg" alt="Certificate 1" />
+              <img src="stage.jpg" alt="Academic Excellence Awardee - Grade 12" class="clickable-img" />
               <span class="slot-label">Academic Excellence Awardee - Grade 12</span>
             </div>
             <div class="media-slot mini-slot">
-              <img src="dip.jpg" alt="Certificate 2" />
+              <img src="dip.jpg" alt="Academic Excellence Awardee - Grade 10" class="clickable-img" />
               <span class="slot-label">Academic Excellence Awardee - Grade 10</span>
             </div>
             <div class="media-slot mini-slot">
-              <img src="genyo.jpg" alt="Certificate 3" />
+              <img src="genyo.jpg" alt="Batang Genyo by Diwa" class="clickable-img" />
               <span class="slot-label">Batang Genyo by Diwa</span>
             </div>
             <div class="media-slot mini-slot">
-              <img src="valdy.jpg" alt="Certificate 3" />
+              <img src="valdy.jpg" alt="Class Valedictorian - Elementary" class="clickable-img" />
               <span class="slot-label">Class Valedictorian - Elementary</span>
             </div>
             <div class="media-slot mini-slot">
-              <img src="dspc.jpg" alt="Certificate 3" />
+              <img src="dspc.jpg" alt="Overall Champions - DSPC 2024" class="clickable-img" />
               <span class="slot-label">Overall Champions - DSPC 2024</span>
             </div>
             <div class="media-slot mini-slot">
-              <img src="rspc.jpg" alt="Certificate 3" />
+              <img src="rspc.jpg" alt="RSPC Qualifiers - RSPC 2023" class="clickable-img" />
               <span class="slot-label">RSPC Qualifiers - RSPC 2023</span>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -160,12 +191,12 @@
         
         <div class="project-card">
           <div class="project-image-slot">
-            <img src="pharma.jpg" alt="Project 1 Preview" />
+            <img src="pharma.jpg" alt="Prescription Management System" class="clickable-img" />
           </div>
           <div class="project-info">
             <h3 class="project-title">Prescription Management System</h3>
             <p class="project-desc">
-              A dyanmic prescription management system used in pharmacies to create schedules of when the patient needs to intake the medicine. It also alarms the patient on time to keep track of the medicine intake.
+              A dynamic prescription management system used in pharmacies to create schedules of when the patient needs to intake the medicine. It also alarms the patient on time to keep track of the medicine intake.
             </p>
             <div class="project-tags">
               <span>PHP</span>
@@ -178,18 +209,17 @@
 
         <div class="project-card">
           <div class="project-image-slot">
-            <img src="payroll.jpg" alt="Project 2 Preview" />
+            <img src="payroll.jpg" alt="College Payroll System" class="clickable-img" />
           </div>
           <div class="project-info">
-            <h3 class="project-title">LCC Payroll System</h3>
+            <h3 class="project-title">College Payroll System</h3>
             <p class="project-desc">
-              A payroll system created for Lipa City Colleges' employees. It deploys their departments and positions to ensure ease in distributing their salaries.
+              A payroll system created for school/university employees. It deploys their departments and positions to ensure ease in distributing their salaries.
             </p>
             <div class="project-tags">
               <span>PHP</span>
               <span>HTML/CSS</span>
               <span>MySQL</span>
-              <span>Git</span>
             </div>
           </div>
         </div>
@@ -207,7 +237,7 @@
           <h3>Contact Info</h3>
           <p>Feel free to reach out for collaborations, academic inquiries, or projects!</p>
           <ul class="contact-info-list">
-            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:abeesseinantoni@gmail.com">abeesseinantoni@gmail.com</a></li>
+            <li><i class="fa-solid fa-envelope"></i> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abeesseinantoni@gmail.com&su=Inquiry%20from%20Portfolio">abeesseinantoni@gmail.com</a></li>
             <li><i class="fa-solid fa-phone"></i> <a href="tel:09929457220">09929457220</a></li>
           </ul>
           <div class="social-links">
@@ -255,7 +285,7 @@
         <div class="chat-bot-info">
           <i class="fa-solid fa-spider chat-avatar"></i>
           <div>
-            <h4>AIzen</h4>
+            <h4>AIssein</h4>
             <span class="status">Online | Spider-AI Assistant</span>
           </div>
         </div>
@@ -264,7 +294,7 @@
 
       <div id="chat-body" class="chat-body">
         <div class="chat-message bot">
-          <p>Hello! I'm <strong>AIzen</strong> 🕷️. Ask me anything about Essein, or pick a preset question below!</p>
+          <p>Hello! I'm <strong>AIssein</strong> 🕷️. Ask me anything about Essein, or pick a preset question below!</p>
         </div>
       </div>
 
@@ -278,6 +308,15 @@
         <input type="text" id="chat-input" placeholder="Type a question..." />
         <button id="chat-send" class="chat-send-btn"><i class="fa-solid fa-paper-plane"></i></button>
       </div>
+    </div>
+  </div>
+
+  <!-- Image Zoom Lightbox Modal Container -->
+  <div id="image-modal" class="image-modal">
+    <span class="modal-close">&times;</span>
+    <div class="modal-content-wrapper">
+      <img id="modal-img" class="modal-img" src="" alt="Zoomed View">
+      <p id="modal-caption" class="modal-caption"></p>
     </div>
   </div>
 

@@ -1,6 +1,75 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------------------------------
-  // 1. INTERACTIVE 3D PARALLAX & TILT FOR MAIN PROFILE PICTURE SLOT
+  // DIRECT EMAIL SUBMISSION FORM HANDLER
+  // ------------------------------------------------------------------
+  const contactForm = document.getElementById("direct-contact-form");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const userEmail = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const recipient = "abeesseinantoni@gmail.com";
+      const subject = encodeURIComponent(`Portfolio Contact Message from ${name}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${userEmail}\n\nMessage:\n${message}`
+      );
+
+      // Bubuksan ang mail app ng user na deretso na sa email mo
+      window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+    });
+  }
+  // ------------------------------------------------------------------
+  // 1. MAIN ACHIEVEMENTS CAROUSEL SLIDER (Interactive FB Post Style)
+  // ------------------------------------------------------------------
+  const slides = document.querySelectorAll(".carousel-slide");
+  const dots = document.querySelectorAll(".dot-item");
+  const prevBtn = document.getElementById("achieve-prev-btn");
+  const nextBtn = document.getElementById("achieve-next-btn");
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    if (slides.length === 0) return;
+    
+    // Wrap around index
+    if (index >= slides.length) currentSlide = 0;
+    else if (index < 0) currentSlide = slides.length - 1;
+    else currentSlide = index;
+
+    slides.forEach((slide, i) => {
+      if (i === currentSlide) {
+        slide.classList.add("active");
+      } else {
+        slide.classList.remove("active");
+      }
+    });
+
+    dots.forEach((dot, i) => {
+      if (i === currentSlide) {
+        dot.classList.add("active");
+      } else {
+        dot.classList.remove("active");
+      }
+    });
+  }
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener("click", () => showSlide(currentSlide - 1));
+    nextBtn.addEventListener("click", () => showSlide(currentSlide + 1));
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const slideIndex = parseInt(dot.getAttribute("data-slide"));
+      showSlide(slideIndex);
+    });
+  });
+
+  // ------------------------------------------------------------------
+  // 2. INTERACTIVE 3D PARALLAX & TILT FOR MAIN PROFILE PICTURE SLOT
   // ------------------------------------------------------------------
   const profileContainer = document.getElementById("interactive-profile-wrapper");
   const profileFrame = document.getElementById("interactive-profile-frame");
@@ -8,25 +77,22 @@ document.addEventListener("DOMContentLoaded", () => {
   if (profileContainer && profileFrame) {
     profileContainer.addEventListener("mousemove", (e) => {
       const rect = profileContainer.getBoundingClientRect();
-      const x = e.clientX - rect.left; // Mouse position inside container
+      const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      // Calculate tilt angles
-      const rotateX = ((y - centerY) / centerY) * -15; // Max 15 deg tilt
+      const rotateX = ((y - centerY) / centerY) * -15;
       const rotateY = ((x - centerX) / centerX) * 15;
 
       profileFrame.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
     });
 
     profileContainer.addEventListener("mouseleave", () => {
-      // Reset tilt smoothly when cursor leaves
       profileFrame.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)";
     });
 
-    // Click interactive trigger
     profileFrame.addEventListener("click", () => {
       profileFrame.classList.add("expanded");
       setTimeout(() => {
@@ -36,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ------------------------------------------------------------------
-  // 2. MOBILE MENU TOGGLE
+  // 3. MOBILE MENU TOGGLE
   // ------------------------------------------------------------------
   const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
   const navLinks = document.getElementById("nav-links");
@@ -56,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ------------------------------------------------------------------
-  // 3. LIGHT / DARK MODE TOGGLE
+  // 4. LIGHT / DARK MODE TOGGLE
   // ------------------------------------------------------------------
   const themeToggleBtn = document.getElementById("theme-toggle");
   const themeIcon = themeToggleBtn.querySelector("i");
@@ -83,9 +149,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ------------------------------------------------------------------
-  // 4. AUTOMATIC CYCLING TITLE
+  // 5. AUTOMATIC CYCLING TITLE
   // ------------------------------------------------------------------
-  const titles = ["2nd Year BSCS Student", "DOST-SEI Scholar"];
+  const titles = ["2nd Year BSCS Student", "DOST-SEI Scholar", "Dean's Lister (GPA: 1.57)"];
   const titleElement = document.getElementById("cycling-title");
   let titleIndex = 0;
 
@@ -99,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 2500);
 
   // ------------------------------------------------------------------
-  // 5. AIzen SPIDER CHATBOT
+  // 6. AIzen SPIDER CHATBOT
   // ------------------------------------------------------------------
   const chatbotToggle = document.getElementById("chatbot-toggle");
   const chatbotWindow = document.getElementById("chatbot-window");
@@ -120,7 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const kb = [
     {
       keywords: ["who", "name", "essein", "about"],
-      response: "Essein Antoni L. Abe is a 2nd-year Computer Science student and DOST-SEI Scholar (2025) who aims to be an influential leader in tech!"
+      response: "Essein Antoni L. Abe is a 2nd-year Computer Science student, DOST-SEI Scholar, and Dean's Lister (GPA 1.57)!"
     },
     {
       keywords: ["skill", "know", "stack", "technology", "technologies"],
@@ -132,11 +198,11 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       keywords: ["project", "work", "build"],
-      response: "He has built projects like the Multiverse Data Analyzer and a Web-Based Inventory Portal using PHP, Python, and MySQL."
+      response: "He has built projects like the Prescription Management System and LCC Payroll System."
     },
     {
-      keywords: ["scholar", "dost"],
-      response: "Yes! Essein is a proud DOST-SEI Scholar since 2025."
+      keywords: ["scholar", "dost", "dean", "grades", "gpa"],
+      response: "Essein is a DOST-SEI Scholar (RA 7687) and achieved Dean's Lister status with a GPA of 1.57!"
     }
   ];
 
@@ -159,7 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return item.response;
       }
     }
-    return "I'm not completely sure about that across the Multiverse! Try asking about Essein's skills, projects, contact info, or who he is.";
+    return "I'm not completely sure about that across the Multiverse! Try asking about Essein's skills, projects, contact info, or grades.";
   }
 
   function appendMessage(text, sender) {
@@ -184,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ------------------------------------------------------------------
-  // 6. MOVING WEB-LIKE PARTICLE BACKGROUND
+  // 7. MOVING WEB-LIKE PARTICLE BACKGROUND
   // ------------------------------------------------------------------
   const canvas = document.getElementById("particle-canvas");
   if (canvas) {
@@ -193,12 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const particleCount = 80;
     const maxDistance = 120;
 
-    // Mouse coordinates for dynamic interaction
-    const mouse = {
-      x: null,
-      y: null,
-      radius: 150
-    };
+    const mouse = { x: null, y: null, radius: 150 };
 
     window.addEventListener("mousemove", (e) => {
       mouse.x = e.clientX;
@@ -231,11 +292,9 @@ document.addEventListener("DOMContentLoaded", () => {
         this.x += this.vx;
         this.y += this.vy;
 
-        // Bounce off canvas edges
         if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-        // Repel gently from cursor
         if (mouse.x !== null && mouse.y !== null) {
           const dx = mouse.x - this.x;
           const dy = mouse.y - this.y;
@@ -260,7 +319,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Initialize particles
     for (let i = 0; i < particleCount; i++) {
       particles.push(new Particle());
     }
@@ -271,7 +329,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const theme = document.documentElement.getAttribute("data-theme");
       const lineColor = theme === "light" ? "214, 0, 54" : "0, 240, 255";
 
-      // Connect particles close to each other
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
@@ -297,5 +354,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     animate();
+  }
+
+  // ------------------------------------------------------------------
+  // 8. IMAGE CLICK & ZOOM MODAL FEATURE
+  // ------------------------------------------------------------------
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img");
+  const modalCaption = document.getElementById("modal-caption");
+  const modalClose = document.querySelector(".modal-close");
+  const clickableImages = document.querySelectorAll(".clickable-img");
+
+  clickableImages.forEach((img) => {
+    img.addEventListener("click", () => {
+      modal.classList.add("show");
+      modalImg.src = img.src;
+
+      const slotLabel = img.nextElementSibling;
+      if (slotLabel && slotLabel.classList.contains("slot-label")) {
+        modalCaption.textContent = slotLabel.textContent;
+      } else if (img.alt) {
+        modalCaption.textContent = img.alt;
+      } else {
+        modalCaption.textContent = "";
+      }
+    });
+  });
+
+  if (modalClose) {
+    modalClose.addEventListener("click", () => {
+      modal.classList.remove("show");
+    });
+  }
+
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.remove("show");
+      }
+    });
   }
 });
