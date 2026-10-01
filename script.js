@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------------------------------
   // 5. AUTOMATIC CYCLING TITLE
   // ------------------------------------------------------------------
-  const titles = ["2nd Year BSCS Student", "DOST-SEI Scholar", "Dean's Lister (GPA: 1.57)"];
+  const titles = ["2nd Year BSCS Student", "DOST-SEI Scholar"];
   const titleElement = document.getElementById("cycling-title");
   let titleIndex = 0;
 
