@@ -54,7 +54,7 @@ body {
   background-image: 
     linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
-  background-size: 40px 40px; /* Sukat ng bawat grid square */
+  background-size: 20px 20px; /* Sukat ng bawat grid square */
   background-position: center top;
 }
 
