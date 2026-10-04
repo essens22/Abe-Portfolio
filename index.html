@@ -6,114 +6,119 @@
   <title>Essein Antoni L. Abe | Portfolio</title>
   <link rel="icon" type="image/png" href="spidey.jpg" />
   <link rel="stylesheet" href="style.css" />
-  <!-- Font Awesome for Icons -->
+  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Inter at JetBrains Mono (Katulad sa bryllim.com) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800;900&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Canvas background for interactive web particles -->
-  <canvas id="particle-canvas"></canvas>
+  <!-- Minimal Header / Navigation -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#home" class="nav-logo">Essein Abe<span class="dot">.</span></a>
+      
+      <nav class="nav-links" id="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#education-achievements" class="nav-link">Journey</a>
+        <a href="#skills" class="nav-link">Stack</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
 
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <a href="#home" class="nav-logo">ABE<span class="dot">.</span></a>
-    
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#about" class="nav-link">About Me</a></li>
-      <li><a href="#education-achievements" class="nav-link">Educational Journey</a></li>
-      <li><a href="#skills" class="nav-link">Skills</a></li>
-      <li><a href="#projects" class="nav-link">Projects</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-    </ul>
-
-    <div class="nav-actions">
-      <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
-        <i class="fa-solid fa-moon"></i>
-      </button>
-      <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle Mobile Menu">
-        <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Home Section -->
-  <section id="home" class="hero-section">
-    <div class="container hero-container">
-      <div class="hero-content">
-        <span class="badge">Welcome to Earth-122!</span>
-        <h1 class="hero-title">Hi, I'm <span class="highlight">Essein Antoni Abe</span></h1>
-        <div class="ticker-wrapper">
-          <span class="ticker-prefix">I am a</span>
-          <span id="cycling-title" class="cycling-text">2nd Year BSCS Student</span>
-        </div>
-        <p class="hero-intro">
-          Aspiring software engineer and website developer building modern web experiences and exploring computational frontiers with precision and style.
-        </p>
-        <div class="hero-cta">
-          <a href="#contact" class="btn btn-primary">Get In Touch with Me</a>
-          <a href="#projects" class="btn btn-secondary">View Works</a>
-        </div>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle Mobile Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
-      <div class="hero-image-wrapper">
-        <div class="image-frame-container" id="interactive-profile-wrapper">
-          <!-- Spider Sense Radar Rings -->
-          <div class="spider-sense-ring ring-1"></div>
-          <div class="spider-sense-ring ring-2"></div>
-          
-          <div class="image-frame" id="interactive-profile-frame">
-            <img src="abe.png" alt="Essein Antoni L. Abe" class="clickable-img">
-            <div class="glitch-overlay"></div>
-            <div class="frame-tag"><i class="fa-solid fa-expand"></i> Click to Focus</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section (bryllim style layout) -->
+    <section id="home" class="hero-section">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="badge-pill">
+            <span class="status-indicator"></span> Earth-122
+          </div>
+          <h1 class="hero-title">Essein Antoni Abe</h1>
+          <div class="ticker-wrapper">
+            <span class="ticker-prefix">—</span>
+            <span id="cycling-title" class="cycling-text">2nd Year BSCS Student</span>
+          </div>
+          <p class="hero-intro">
+            Aspiring software engineer and website developer building modern web experiences and exploring computational frontiers with precision and style.
+          </p>
+          <div class="hero-cta">
+            <a href="#contact" class="btn btn-primary">Get in touch ↗</a>
+            <a href="#projects" class="btn btn-secondary">View works</a>
+          </div>
+        </div>
+
+        <div class="hero-image-wrapper">
+          <div class="image-frame-container" id="interactive-profile-wrapper">
+            <div class="image-frame" id="interactive-profile-frame">
+              <img src="abe.png" alt="Essein Antoni L. Abe" class="clickable-img">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Me Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">About <span class="highlight">Me</span></h2>
+    <hr class="divider" />
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="section-header">
+        <span class="section-number">01 —</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
       <div class="about-content">
         <blockquote class="spider-quote">
-          "Okay, let's do this one last time, yeah?" My name is Essein Antoni L. Abe. I was bitten by a radioactive spider, and for, like, two days, I've been the one and only Spider-Man. Anyway, I am a second-year Computer Science student who aspires to be an influential and inspirational character in the field of computing and technology.
+          "Okay, let's do this one last time, yeah?" My name is Essein Antoni Abe. I am a second-year Computer Science student who aspires to be an influential and inspirational character in the field of computing and technology.
         </blockquote>
-        <blockquote class="desc">My dream is to help and be one of the attendants of the ever-going development of technology in the Philippines. I am equipped with skills and hard-work, making tasks and projects functionable with presentation. Technology is making our lives easier and more efficient and as a student, starting early in tech development is a path that I am grateful for. </blockquote>
+        <p class="desc">
+          My dream is to help and be one of the attendants of the ever-going development of technology in the Philippines. I am equipped with skills and hard-work, making tasks and projects functionable with presentation. Technology is making our lives easier and more efficient and as a student, starting early in tech development is a path that I am grateful for.
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Educational Journey & Achievements Section -->
-  <section id="education-achievements" class="section bg-alt">
-    <div class="container">
-      <h2 class="section-title">Educational <span class="highlight">Journey</span></h2>
+    <hr class="divider" />
+
+    <!-- Educational Journey & Achievements Section -->
+    <section id="education-achievements" class="section">
+      <div class="section-header">
+        <span class="section-number">02 —</span>
+        <h2 class="section-title">Educational Journey & Honors</h2>
+      </div>
+      
       <div class="about-grid">
-        
-        <!-- MAIN ACHIEVEMENTS CAROUSEL (Interactive FB Post Style) -->
+        <!-- Main Achievements Carousel -->
         <div class="about-card">
-          <h3><i class="fa-solid fa-graduation-cap"></i> Main Achievements</h3>
+          <div class="card-title">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h3>Main Achievements</h3>
+          </div>
           <p class="card-desc">Recognition, scholarship grant, and academic trajectory.</p>
           
           <div class="achievement-carousel">
-            <!-- Navigation Buttons -->
             <button class="carousel-btn prev-btn" id="achieve-prev-btn" aria-label="Previous Achievement">&lt;</button>
             <button class="carousel-btn next-btn" id="achieve-next-btn" aria-label="Next Achievement">&gt;</button>
 
-            <!-- Slides Container -->
             <div class="carousel-slides">
-              <!-- Slide 1: DOST Scholar -->
               <div class="carousel-slide active" data-index="0">
                 <div class="media-slot main-achievement-slot">
-                  <img src="dost.jpg" alt="DOST-SEI Scholar/RA 7687" class="clickable-img" />
+                  <img src="dost.jpg" alt="DOST-SEI Scholar / RA 7687" class="clickable-img" />
                   <span class="slot-label">DOST-SEI Scholar / RA 7687</span>
                 </div>
               </div>
 
-              <!-- Slide 2: Dean's Lister -->
               <div class="carousel-slide" data-index="1">
                 <div class="media-slot main-achievement-slot">
                   <img src="deans.jpg" alt="Dean's Lister - First Semester S.Y. 2025-2026 (GPA: 1.57)" class="clickable-img" />
@@ -122,7 +127,6 @@
               </div>
             </div>
 
-            <!-- Dots Indicator -->
             <div class="carousel-dots" id="carousel-dots">
               <span class="dot-item active" data-slide="0"></span>
               <span class="dot-item" data-slide="1"></span>
@@ -132,16 +136,19 @@
 
         <!-- Awards & Certificates Gallery -->
         <div class="about-card">
-          <h3><i class="fa-solid fa-award"></i> Awards & Certificates</h3>
+          <div class="card-title">
+            <i class="fa-solid fa-award"></i>
+            <h3>Awards & Certificates</h3>
+          </div>
           <p class="card-desc">Honors and certifications earned over time.</p>
           <div class="certificates-gallery">
             <div class="media-slot mini-slot">
               <img src="stage.jpg" alt="Academic Excellence Awardee - Grade 12" class="clickable-img" />
-              <span class="slot-label">Academic Excellence Awardee - Grade 12</span>
+              <span class="slot-label">Academic Excellence - Grade 12</span>
             </div>
             <div class="media-slot mini-slot">
               <img src="dip.jpg" alt="Academic Excellence Awardee - Grade 10" class="clickable-img" />
-              <span class="slot-label">Academic Excellence Awardee - Grade 10</span>
+              <span class="slot-label">Academic Excellence - Grade 10</span>
             </div>
             <div class="media-slot mini-slot">
               <img src="genyo.jpg" alt="Batang Genyo by Diwa" class="clickable-img" />
@@ -149,27 +156,29 @@
             </div>
             <div class="media-slot mini-slot">
               <img src="valdy.jpg" alt="Class Valedictorian - Elementary" class="clickable-img" />
-              <span class="slot-label">Class Valedictorian - Elementary</span>
+              <span class="slot-label">Class Valedictorian</span>
             </div>
             <div class="media-slot mini-slot">
               <img src="dspc.jpg" alt="Overall Champions - DSPC 2024" class="clickable-img" />
-              <span class="slot-label">Overall Champions - DSPC 2024</span>
+              <span class="slot-label">DSPC 2024 Champions</span>
             </div>
             <div class="media-slot mini-slot">
               <img src="rspc.jpg" alt="RSPC Qualifiers - RSPC 2023" class="clickable-img" />
-              <span class="slot-label">RSPC Qualifiers - RSPC 2023</span>
+              <span class="slot-label">RSPC Qualifiers 2023</span>
             </div>
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="section">
-    <div class="container">
-      <h2 class="section-title">Technical <span class="highlight">Skills</span></h2>
+    <hr class="divider" />
+
+    <!-- Tech Stack Section (bryllim minimalist grid style) -->
+    <section id="skills" class="section">
+      <div class="section-header">
+        <span class="section-number">03 —</span>
+        <h2 class="section-title">Technical Stack</h2>
+      </div>
       <div class="skills-grid">
         <div class="skill-card"><i class="fa-brands fa-python"></i><span>Python</span></div>
         <div class="skill-card"><i class="fa-brands fa-php"></i><span>PHP</span></div>
@@ -180,13 +189,16 @@
         <div class="skill-card"><i class="fa-brands fa-html5"></i><span>HTML</span></div>
         <div class="skill-card"><i class="fa-solid fa-database"></i><span>MySQL</span></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="section bg-alt">
-    <div class="container">
-      <h2 class="section-title">Featured <span class="highlight">Projects</span></h2>
+    <hr class="divider" />
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="section-header">
+        <span class="section-number">04 —</span>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
       <div class="projects-grid">
         
         <div class="project-card">
@@ -225,30 +237,39 @@
         </div>
 
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Contact <span class="highlight">Me</span></h2>
+    <hr class="divider" />
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="section-header">
+        <span class="section-number">05 —</span>
+        <h2 class="section-title">Get In Touch</h2>
+      </div>
       <div class="contact-wrapper">
         <div class="contact-details">
-          <h3>Contact Info</h3>
+          <h3>Let's Connect</h3>
           <p>Feel free to reach out for collaborations, academic inquiries, or projects!</p>
           <ul class="contact-info-list">
-            <li><i class="fa-solid fa-envelope"></i> <a href="https://mail.google.com/mail/?view=cm&fs=1&to=abeesseinantoni@gmail.com&su=Inquiry%20from%20Portfolio">abeesseinantoni@gmail.com</a></li>
-            <li><i class="fa-solid fa-phone"></i> <a href="tel:09929457220">09929457220</a></li>
+            <li>
+              <i class="fa-solid fa-envelope"></i> 
+              <a href="mailto:abeesseinantoni@gmail.com">abeesseinantoni@gmail.com</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i> 
+              <a href="tel:09929457220">09929457220</a>
+            </li>
           </ul>
           <div class="social-links">
-            <a href="https://www.facebook.com/wonntons" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook"></i> Antoni Abe</a>
-            <a href="https://instagram.com/wonntons" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i> @wonntons</a>
-            <a href="https://github.com/essens22" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i> essens22</a>
-            <a href="https://www.linkedin.com/in/essein-antoni-abe-67389b435/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i> Essein Antoni Abe</a>
+            <a href="https://www.facebook.com/wonntons" target="_blank" rel="noopener"><i class="fa-brands fa-facebook"></i> Antoni Abe ↗</a>
+            <a href="https://instagram.com/wonntons" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> @wonntons ↗</a>
+            <a href="https://github.com/essens22" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> essens22 ↗</a>
+            <a href="https://www.linkedin.com/in/essein-antoni-abe-67389b435/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i> Essein Antoni Abe ↗</a>
           </div>
         </div>
 
-        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+        <form id="direct-contact-form" class="contact-form">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" id="name" required placeholder="Your Name" />
@@ -264,17 +285,17 @@
           <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Footer -->
+  <!-- Clean Footer -->
   <footer class="footer">
-    <div class="container">
-      <p>&copy; 2026 Essein Antoni L. Abe. Built across multiverses.</p>
+    <div class="container footer-container">
+      <p>&copy; 2026 Essein Antoni L. Abe. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Chatbot Widget: AIzen -->
+  <!-- Chatbot Widget: AIssein -->
   <div class="chatbot-wrapper">
     <button id="chatbot-toggle" class="chatbot-btn" aria-label="Open Chatbot">
       <i class="fa-solid fa-spider"></i>
@@ -311,7 +332,7 @@
     </div>
   </div>
 
-  <!-- Image Zoom Lightbox Modal Container -->
+  <!-- Image Lightbox Modal Container -->
   <div id="image-modal" class="image-modal">
     <span class="modal-close">&times;</span>
     <div class="modal-content-wrapper">
