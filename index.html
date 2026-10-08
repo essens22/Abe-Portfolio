@@ -8,28 +8,51 @@
   <link rel="stylesheet" href="style.css" />
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <!-- Google Fonts: Inter at JetBrains Mono (Katulad sa bryllim.com) -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Minimal Header / Navigation -->
-  <header class="header">
-    <div class="container header-container">
-      <a href="#home" class="nav-logo">ABE<span class="dot">.</span></a>
+  <!-- Collapsible Left Sidebar Header -->
+  <header class="header" id="sidebar">
+    <div class="header-container">
+      <div class="sidebar-top">
+        <a href="#home" class="nav-logo">
+          <i class="fa-solid fa-spider logo-icon"></i>
+          <span class="logo-text">ABE<span class="dot">.</span></span>
+        </a>
+        <button id="sidebar-toggle" class="sidebar-toggle-btn" aria-label="Toggle Navigation">
+          <i class="fa-solid fa-angles-left toggle-icon"></i>
+        </button>
+      </div>
       
       <nav class="nav-links" id="nav-links">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#education-achievements" class="nav-link">Journey</a>
-        <a href="#skills" class="nav-link">Stack</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#about" class="nav-link" title="About">
+          <i class="fa-regular fa-user"></i>
+          <span class="link-text">About</span>
+        </a>
+        <a href="#education-achievements" class="nav-link" title="Journey">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span class="link-text">Journey</span>
+        </a>
+        <a href="#skills" class="nav-link" title="Stack">
+          <i class="fa-solid fa-layer-group"></i>
+          <span class="link-text">Stack</span>
+        </a>
+        <a href="#projects" class="nav-link" title="Projects">
+          <i class="fa-solid fa-briefcase"></i>
+          <span class="link-text">Projects</span>
+        </a>
+        <a href="#contact" class="nav-link" title="Contact">
+          <i class="fa-regular fa-paper-plane"></i>
+          <span class="link-text">Contact</span>
+        </a>
       </nav>
 
       <div class="nav-actions">
-        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+        <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme" title="Theme Toggle">
           <i class="fa-solid fa-moon"></i>
         </button>
         <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle Mobile Menu">
@@ -40,7 +63,7 @@
   </header>
 
   <main class="container">
-    <!-- Hero Section (bryllim style layout) -->
+    <!-- Hero Section -->
     <section id="home" class="hero-section">
       <div class="hero-grid">
         <div class="hero-content">
@@ -95,77 +118,83 @@
     <section id="education-achievements" class="section">
       <div class="section-header">
         <span class="section-number">02 —</span>
-        <h2 class="section-title">Educational Journey & Honors</h2>
+        <h2 class="section-title">Experiences, Journey & Achievements</h2>
       </div>
       
-      <div class="about-grid">
-        <!-- Main Achievements Carousel -->
-        <div class="about-card">
-          <div class="card-title">
-            <i class="fa-solid fa-graduation-cap"></i>
-            <h3>Main Achievements</h3>
+      <!-- Main Achievements Carousel (Square Layout) -->
+      <div class="about-card achievement-single-card">
+        <div class="card-title">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <h3>Main Achievements</h3>
+        </div>
+        <p class="card-desc">Recognition, scholarship grant, and academic trajectory.</p>
+        
+        <div class="achievement-carousel square-carousel">
+          <button class="carousel-btn prev-btn" id="achieve-prev-btn" aria-label="Previous Achievement">&lt;</button>
+          <button class="carousel-btn next-btn" id="achieve-next-btn" aria-label="Next Achievement">&gt;</button>
+
+          <div class="carousel-slides">
+            <div class="carousel-slide active" data-index="0">
+              <div class="media-slot main-achievement-slot document-slot">
+                <img src="dost.jpg" alt="DOST-SEI Scholar / RA 7687" class="clickable-img" />
+                <span class="slot-label">DOST-SEI Scholar / RA 7687</span>
+              </div>
+            </div>
+
+            <div class="carousel-slide" data-index="1">
+              <div class="media-slot main-achievement-slot">
+                <img src="deans.jpg" alt="Dean's Lister - First Semester S.Y. 2025-2026 (GPA: 1.57)" class="clickable-img" />
+                <span class="slot-label">Dean's Lister - 1st Sem S.Y. 2025-2026 (GPA: 1.57)</span>
+              </div>
+            </div>
           </div>
-          <p class="card-desc">Recognition, scholarship grant, and academic trajectory.</p>
-          
-          <div class="achievement-carousel">
-            <button class="carousel-btn prev-btn" id="achieve-prev-btn" aria-label="Previous Achievement">&lt;</button>
-            <button class="carousel-btn next-btn" id="achieve-next-btn" aria-label="Next Achievement">&gt;</button>
 
-            <div class="carousel-slides">
-              <div class="carousel-slide active" data-index="0">
-                <div class="media-slot main-achievement-slot">
-                  <img src="dost.jpg" alt="DOST-SEI Scholar / RA 7687" class="clickable-img" />
-                  <span class="slot-label">DOST-SEI Scholar / RA 7687</span>
-                </div>
-              </div>
+          <div class="carousel-dots" id="carousel-dots">
+            <span class="dot-item active" data-slide="0"></span>
+            <span class="dot-item" data-slide="1"></span>
+          </div>
+        </div>
+      </div>
 
-              <div class="carousel-slide" data-index="1">
-                <div class="media-slot main-achievement-slot">
-                  <img src="deans.jpg" alt="Dean's Lister - First Semester S.Y. 2025-2026 (GPA: 1.57)" class="clickable-img" />
-                  <span class="slot-label">Dean's Lister - 1st Sem S.Y. 2025-2026 (GPA: 1.57)</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="carousel-dots" id="carousel-dots">
-              <span class="dot-item active" data-slide="0"></span>
-              <span class="dot-item" data-slide="1"></span>
-            </div>
+      <!-- Minimalist Timeline Rows Section (2026 to 2023) -->
+      <div class="timeline-rows-container">
+        <div class="timeline-row">
+          <div class="timeline-left">
+            <span class="timeline-date">2026</span>
+            <span class="timeline-title">2nd Year Computer Science Student</span>
+          </div>
+          <div class="timeline-right">
+            <span class="timeline-org">Lipa City Colleges</span>
           </div>
         </div>
 
-        <!-- Awards & Certificates Gallery -->
-        <div class="about-card">
-          <div class="card-title">
-            <i class="fa-solid fa-award"></i>
-            <h3>Awards & Certificates</h3>
+        <div class="timeline-row">
+          <div class="timeline-left">
+            <span class="timeline-date">2025</span>
+            <span class="timeline-title">1st Year Computer Science Student</span>
           </div>
-          <p class="card-desc">Honors and certifications earned over time.</p>
-          <div class="certificates-gallery">
-            <div class="media-slot mini-slot">
-              <img src="stage.jpg" alt="Academic Excellence Awardee - Grade 12" class="clickable-img" />
-              <span class="slot-label">Academic Excellence - Grade 12</span>
-            </div>
-            <div class="media-slot mini-slot">
-              <img src="dip.jpg" alt="Academic Excellence Awardee - Grade 10" class="clickable-img" />
-              <span class="slot-label">Academic Excellence - Grade 10</span>
-            </div>
-            <div class="media-slot mini-slot">
-              <img src="genyo.jpg" alt="Batang Genyo by Diwa" class="clickable-img" />
-              <span class="slot-label">Batang Genyo by Diwa</span>
-            </div>
-            <div class="media-slot mini-slot">
-              <img src="valdy.jpg" alt="Class Valedictorian - Elementary" class="clickable-img" />
-              <span class="slot-label">Class Valedictorian</span>
-            </div>
-            <div class="media-slot mini-slot">
-              <img src="dspc.jpg" alt="Overall Champions - DSPC 2024" class="clickable-img" />
-              <span class="slot-label">DSPC 2024 Champions</span>
-            </div>
-            <div class="media-slot mini-slot">
-              <img src="rspc.jpg" alt="RSPC Qualifiers - RSPC 2023" class="clickable-img" />
-              <span class="slot-label">RSPC Qualifiers 2023</span>
-            </div>
+          <div class="timeline-right">
+            <span class="timeline-org">Lipa City Colleges</span>
+          </div>
+        </div>
+
+        <div class="timeline-row">
+          <div class="timeline-left">
+            <span class="timeline-date">2024</span>
+            <span class="timeline-title">Layout Artist & Website Editor (Non code)</span>
+          </div>
+          <div class="timeline-right">
+            <span class="timeline-org">The Mabini Academy - The Sublime</span>
+          </div>
+        </div>
+
+        <div class="timeline-row">
+          <div class="timeline-left">
+            <span class="timeline-date">2023</span>
+            <span class="timeline-title">Layout Artist & Website Editor (Non code)</span>
+          </div>
+          <div class="timeline-right">
+            <span class="timeline-org">The Mabini Academy - The Sublime</span>
           </div>
         </div>
       </div>
@@ -173,7 +202,7 @@
 
     <hr class="divider" />
 
-    <!-- Tech Stack Section (bryllim minimalist grid style) -->
+    <!-- Technical Stack Section -->
     <section id="skills" class="section">
       <div class="section-header">
         <span class="section-number">03 —</span>
@@ -193,23 +222,31 @@
 
     <hr class="divider" />
 
-    <!-- Projects Section -->
+    <!-- 3D Stacked Carousel Projects Section -->
     <section id="projects" class="section">
       <div class="section-header">
         <span class="section-number">04 —</span>
         <h2 class="section-title">Featured Projects</h2>
       </div>
-      <div class="projects-grid">
-        
-        <div class="project-card">
-          <div class="project-image-slot">
-            <img src="pharma.jpg" alt="Prescription Management System" class="clickable-img" />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">Prescription Management System</h3>
+
+      <div class="carousel-3d-wrapper">
+        <div class="carousel-3d-container" id="projects-3d-container">
+          
+          <!-- Card 1: Prescription Management -->
+          <div class="project-card-3d" data-index="0">
+            <div class="card-badge">HEALTH APP</div>
+            <div class="project-header">
+              <div class="project-icon-box">
+                <i class="fa-solid fa-prescription-bottle-medical"></i>
+              </div>
+              <h3 class="project-title">Prescription Management System</h3>
+            </div>
             <p class="project-desc">
-              A dynamic prescription management system used in pharmacies to create schedules of when the patient needs to intake the medicine. It also alarms the patient on time to keep track of the medicine intake.
+              A dynamic prescription management system used in pharmacies to schedule patient medicine intake and alert them on time.
             </p>
+            <div class="project-image-slot">
+              <img src="pharma.jpg" alt="Prescription Management System" class="clickable-img" />
+            </div>
             <div class="project-tags">
               <span>PHP</span>
               <span>JavaScript</span>
@@ -217,25 +254,59 @@
               <span>MySQL</span>
             </div>
           </div>
-        </div>
 
-        <div class="project-card">
-          <div class="project-image-slot">
-            <img src="payroll.jpg" alt="Payroll System" class="clickable-img" />
-          </div>
-          <div class="project-info">
-            <h3 class="project-title">Payroll System</h3>
+          <!-- Card 2: KALINGA (Center initial) -->
+          <div class="project-card-3d" data-index="1">
+            <div class="card-badge">ADAPTIVE SPED TECH</div>
+            <div class="project-header">
+              <div class="project-icon-box">
+                <i class="fa-solid fa-hands-holding-child"></i>
+              </div>
+              <h3 class="project-title">KALINGA – SPED Platform</h3>
+            </div>
             <p class="project-desc">
-              A payroll system created for school/university employees. It deploys their departments and positions to ensure ease in distributing their salaries.
+              An adaptive SPED platform for students with disabilities featuring non-verbal sign tools, letter tracing, shape sorting, and finger math games.
             </p>
+            <div class="project-image-slot">
+              <img src="kalinga.jpg" alt="KALINGA - Adaptive SPED Technology" class="clickable-img" />
+            </div>
+            <div class="project-tags">
+              <span>PHP</span>
+              <span>JavaScript</span>
+              <span>HTML/CSS</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Payroll System -->
+          <div class="project-card-3d" data-index="2">
+            <div class="card-badge">COLLEGE PAYROLL</div>
+            <div class="project-header">
+              <div class="project-icon-box">
+                <i class="fa-solid fa-calculator"></i>
+              </div>
+              <h3 class="project-title">Payroll Management System</h3>
+            </div>
+            <p class="project-desc">
+              A payroll system created for university employees to deploy department positions and ensure smooth salary distribution.
+            </p>
+            <div class="project-image-slot">
+              <img src="payroll.jpg" alt="Payroll System" class="clickable-img" />
+            </div>
             <div class="project-tags">
               <span>PHP</span>
               <span>HTML/CSS</span>
               <span>MySQL</span>
             </div>
           </div>
-        </div>
 
+        </div>
+      </div>
+
+      <!-- Carousel Pagination Dots -->
+      <div class="carousel-3d-dots" id="proj-dots">
+        <span class="dot-3d" data-slide="0"></span>
+        <span class="dot-3d active" data-slide="1"></span>
+        <span class="dot-3d" data-slide="2"></span>
       </div>
     </section>
 
@@ -286,14 +357,16 @@
         </form>
       </div>
     </section>
-  </main>
 
-  <!-- Clean Footer -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <p>&copy; 2026 Essein Antoni L. Abe. All rights reserved.</p>
-    </div>
-  </footer>
+    <hr class="divider" />
+
+    <!-- Clean Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <p>&copy; 2026 Essein Antoni L. Abe. All rights reserved.</p>
+      </div>
+    </footer>
+  </main>
 
   <!-- Chatbot Widget: AIssein -->
   <div class="chatbot-wrapper">

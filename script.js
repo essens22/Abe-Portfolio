@@ -1,5 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------------------------------------------
+  // 0. SIDEBAR COLLAPSE TOGGLE LOGIC
+  // ------------------------------------------------------------------
+  const sidebarToggle = document.getElementById("sidebar-toggle");
+
+  if (sidebarToggle) {
+    sidebarToggle.addEventListener("click", () => {
+      document.body.classList.toggle("sidebar-collapsed");
+    });
+  }
+
+  // ------------------------------------------------------------------
   // 1. DIRECT EMAIL SUBMISSION FORM HANDLER
   // ------------------------------------------------------------------
   const contactForm = document.getElementById("direct-contact-form");
@@ -58,6 +69,73 @@ document.addEventListener("DOMContentLoaded", () => {
       showSlide(slideIndex);
     });
   });
+
+  // ------------------------------------------------------------------
+  // 2.5. 3D STACKED CAROUSEL FOR FEATURED PROJECTS
+  // ------------------------------------------------------------------
+  const projCards = document.querySelectorAll(".project-card-3d");
+  const projDots = document.querySelectorAll(".dot-3d");
+  const projPrevBtn = document.getElementById("proj-prev-btn");
+  const projNextBtn = document.getElementById("proj-next-btn");
+  let currentProjIndex = 1; // Start with KALINGA (Index 1) in the center
+
+  function update3DCarousel(activeIndex) {
+    if (projCards.length === 0) return;
+
+    if (activeIndex >= projCards.length) currentProjIndex = 0;
+    else if (activeIndex < 0) currentProjIndex = projCards.length - 1;
+    else currentProjIndex = activeIndex;
+
+    const total = projCards.length;
+    const leftIndex = (currentProjIndex - 1 + total) % total;
+    const rightIndex = (currentProjIndex + 1) % total;
+
+    projCards.forEach((card, i) => {
+      card.classList.remove("active", "left", "right", "hidden-card");
+
+      if (i === currentProjIndex) {
+        card.classList.add("active");
+      } else if (i === leftIndex) {
+        card.classList.add("left");
+      } else if (i === rightIndex) {
+        card.classList.add("right");
+      } else {
+        card.classList.add("hidden-card");
+      }
+    });
+
+    projDots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentProjIndex);
+    });
+  }
+
+  // Click card to bring to front center
+  projCards.forEach((card, index) => {
+    card.addEventListener("click", (e) => {
+      // Don't trigger carousel shift if clicking lightbox image directly
+      if (e.target.classList.contains("clickable-img") && card.classList.contains("active")) {
+        return;
+      }
+      if (index !== currentProjIndex) {
+        update3DCarousel(index);
+      }
+    });
+  });
+
+  if (projPrevBtn && projNextBtn) {
+    projPrevBtn.addEventListener("click", () => update3DCarousel(currentProjIndex - 1));
+    projNextBtn.addEventListener("click", () => update3DCarousel(currentProjIndex + 1));
+  }
+
+  projDots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const index = parseInt(dot.getAttribute("data-slide"));
+      update3DCarousel(index);
+    });
+  });
+
+  // Initialize carousel state on load
+  update3DCarousel(currentProjIndex);
 
   // ------------------------------------------------------------------
   // 3. INTERACTIVE 3D PARALLAX FOR PROFILE PICTURE
@@ -186,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       keywords: ["project", "work", "build"],
-      response: "He has built projects like the Prescription Management System and LCC Payroll System."
+      response: "He has built projects like KALINGA, Prescription Management System, and LCC Payroll System."
     },
     {
       keywords: ["scholar", "dost", "dean", "grades", "gpa"],
@@ -248,7 +326,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const clickableImages = document.querySelectorAll(".clickable-img");
 
   clickableImages.forEach((img) => {
-    img.addEventListener("click", () => {
+    img.addEventListener("click", (e) => {
+      // If clicking inside a side card of 3D carousel, rotate card first instead of opening lightbox
+      const parentCard = img.closest(".project-card-3d");
+      if (parentCard && !parentCard.classList.contains("active")) {
+        return;
+      }
+
       modal.classList.add("show");
       modalImg.src = img.src;
 
